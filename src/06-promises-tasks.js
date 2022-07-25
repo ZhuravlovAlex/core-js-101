@@ -72,7 +72,12 @@ function processAllPromises(/* array */) {
  *
  */
 function getFastestPromise(/* array */) {
-  throw new Error('Not implemented');
+  // const promice = new Promise.((resolve, reject) => {
+
+  // });
+  // prom.then(function(value) {
+  //   return value;
+  // })
 }
 
 /**
