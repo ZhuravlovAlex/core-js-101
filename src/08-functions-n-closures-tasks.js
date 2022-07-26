@@ -132,6 +132,9 @@ function retry(/* func, attempts */) {
  *
  */
 function logger(/* func, logFunc */) {
+  // return function (str) {
+  //   return logFunc(func(str))
+  // }
   throw new Error('Not implemented');
 }
 
@@ -149,8 +152,9 @@ function logger(/* func, logFunc */) {
  *   partialUsingArguments(fn, 'a','b','c')('d') => 'abcd'
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
-function partialUsingArguments(/* fn, ...args1 */) {
-  throw new Error('Not implemented');
+function partialUsingArguments(fn, ...args1) {
+  const partial = (cb, ...args) => (...lastArgs) => cb(...args, ...lastArgs);
+  return partial(fn, ...args1);
 }
 
 

@@ -137,16 +137,14 @@ function isTriangle(a, b, c) {
  *
  */
 function doRectanglesOverlap(/* rect1, rect2 */) {
-  // if (rect1.x1 >= rect2.x2 || rect2.x1 >= rect1.x2) {
-  //   return false;
-  // }
-  // if (rect1.y1 >= rect2.y2 || rect2.y1 >= rect1.y2) {
-  //   return false;
-  // }
-  // if (rect1.x1 === rect2.x1 || rect2.x2 === rect1.x2) {
-  //   return false;
-  // }
-  // return true;
+  // const points = [
+  //   {
+  //     x: rec
+  //   },
+  //   {},
+  //   {},
+  //   {}
+  // ]
   throw new Error('Not implemented');
 }
 
@@ -243,8 +241,8 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
 
 
@@ -260,8 +258,8 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  return num.toString().split('').reverse().join('');
 }
 
 
@@ -285,8 +283,21 @@ function reverseInteger(/* num */) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(/* ccn */) {
-  throw new Error('Not implemented');
+function isCreditCardNumber(ccn) {
+  let even = false;
+  return ccn.toString().split('').reverse().map(Number)
+    .reduce((sum, d) => {
+      let newSum;
+      even = !even;
+      if (even) {
+        newSum = sum + d;
+      } else if (d < 5) {
+        newSum = sum + d * 2;
+      } else {
+        newSum = sum + (d - 5) * 2 + 1;
+      }
+      return newSum;
+    }, 0) % 10 === 0;
 }
 
 /**
@@ -354,8 +365,8 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  return num.toString(n);
 }
 
 
